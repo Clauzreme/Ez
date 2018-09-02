@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.0.1",
     "@material-ui/icons": "^3.0.1",
+    "moment": "^2.22.2",
     "parcel-bundler": "^1.9.7",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -24,11 +25,9 @@
     "start": "npm-run-all -p babel compile",
     "debug": "react-scripts start",
     "web": "rm -rf build && cp -R public build && parcel public/index.html -d build",
-    "build":
-      "rm -rf build && cp -R public build && parcel build public/index.html -d build",
+    "build": "rm -rf build && cp -R public build && parcel build public/index.html -d build",
     "deploy": "yarn build && firebase deploy",
-    "babel":
-      "rm -rf compiled && cp -R compiling compiled && babel compiled compiled",
+    "babel": "rm -rf compiled && cp -R compiling compiled && babel compiled compiled",
     "compile": "node compiled/compiler.js helloWorld.ez",
     "items": "node items/index.js"
   }

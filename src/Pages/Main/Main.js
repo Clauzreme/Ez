@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import Header from '../../Components/Header/Header'
 
+import withContainer from '../../Components/withContainer'
+
 import './Main.scss'
 
 class Main extends Component {
@@ -25,6 +27,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const enhance = compose(
+  withContainer(),
   connect(
     mapStateToProps,
     mapDispatchToProps,
