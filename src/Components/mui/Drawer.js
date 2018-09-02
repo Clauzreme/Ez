@@ -11,7 +11,9 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 
-const drawerWidth = 240
+import ListY from './List'
+
+const drawerWidth = 200
 
 const styles = theme => ({
   drawerPaper: {
@@ -34,7 +36,7 @@ class PermanentDrawer extends React.Component {
       >
         <div className={classes.toolbar}>Hi</div>
         <Divider />
-        <List />
+        <ListY />
         <Divider />
         <List />
       </Drawer>
