@@ -37,7 +37,7 @@ class PermanentDrawer extends React.Component {
         }}
       >
         <div className={classes.toolbar}>
-          <Link>
+          <Link to={'/'}>
             <h1>Ez</h1>
           </Link>
         </div>
