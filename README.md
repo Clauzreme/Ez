@@ -19,8 +19,9 @@ Why Ez is worth looking at?
 - `Null`: null value
 - `Array`: [], ['23213', true, 'hehe'], [undefined]
 - `Object`: {'hi': 'sup', '2': '5'}
+- `Set`: {'abc', 1, ['string here'], 1.25}
 
-Behind the hood they are all objects, so you can run functions on them, such as
+Behind the hood they are all instances of classes, so you can run methods on them, such as
 
 ```
 [].isEmpty()
