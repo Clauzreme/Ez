@@ -11,7 +11,9 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 
-import ListY from './List'
+import { Link } from 'react-router-dom'
+
+import DrawerList from './DrawerList'
 
 const drawerWidth = 200
 
@@ -34,9 +36,13 @@ class PermanentDrawer extends React.Component {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.toolbar}>Hi</div>
+        <div className={classes.toolbar}>
+          <Link>
+            <h1>Ez</h1>
+          </Link>
+        </div>
         <Divider />
-        <ListY />
+        <DrawerList />
         <Divider />
         <List />
       </Drawer>

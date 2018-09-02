@@ -39,7 +39,7 @@ const styles = theme => ({
   },
 })
 
-class NestedList extends React.Component {
+class DrawerList extends React.Component {
   state = {
     open: false,
   }
@@ -89,8 +89,8 @@ class NestedList extends React.Component {
   }
 }
 
-NestedList.propTypes = {
+DrawerList.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(NestedList)
+export default withStyles(styles)(DrawerList)
