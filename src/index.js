@@ -1,24 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Router from './components/Router'
+import Router from './Components/Router'
 import { Provider } from 'react-redux'
-import { blue500 } from 'material-ui/styles/colors'
 import { PersistGate } from 'redux-persist/integration/react'
-import { BrowserRouter } from 'react-router-dom'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
-import { store, persistor } from './store'
-
-import './style.css'
+import { store, persistor } from './Store'
 
 import indigo from '@material-ui/core/colors/indigo'
 import pink from '@material-ui/core/colors/pink'
 import red from '@material-ui/core/colors/red'
 import blue from '@material-ui/core/colors/blue'
 
-import './index.scss'
-import registerServiceWorker from './registerServiceWorker'
+import './Utils/index.scss'
+import registerServiceWorker from './Utils/registerServiceWorker'
 
 // persistor.purge()
 
@@ -44,9 +40,7 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <BrowserRouter>
           <Router />
-        </BrowserRouter>
       </PersistGate>
     </Provider>
   </MuiThemeProvider>

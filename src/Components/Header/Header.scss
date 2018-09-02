@@ -1,0 +1,7 @@
+.header {
+  margin-top: 0;
+  padding: 15px;
+  & * {
+    margin-top: 0;
+  }
+}
