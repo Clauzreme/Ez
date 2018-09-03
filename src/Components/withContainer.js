@@ -28,7 +28,9 @@ const withContainer = PropOptions => WrappedComponent => {
             handleClick={idx => this.handleClick(idx)}
             drawerList={drawerList}
           />
-          <WrappedComponent {...this.props} />
+          <div className="rightSide">
+            <WrappedComponent {...this.props} />
+          </div>
         </Fragment>
       )
     }

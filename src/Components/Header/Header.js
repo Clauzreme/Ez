@@ -1,11 +1,9 @@
 import React from 'react'
 
+import HeadBar from '../mui/HeadBar'
+
 import './Header.scss'
 
-const Header = () => (
-  <div className="header">
-    <h1 />
-  </div>
-)
+const Header = () => <HeadBar />
 
 export default Header

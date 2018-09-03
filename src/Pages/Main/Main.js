@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -11,9 +11,9 @@ import './Main.scss'
 class Main extends Component {
   render() {
     return (
-      <div className="wrapper__main">
+      <Fragment>
         <Header />
-      </div>
+      </Fragment>
     )
   }
 }

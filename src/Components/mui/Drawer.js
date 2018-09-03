@@ -19,7 +19,6 @@ const drawerWidth = 200
 
 const styles = theme => ({
   drawerPaper: {
-    position: 'relative',
     width: drawerWidth,
   },
   toolbar: theme.mixins.toolbar,
