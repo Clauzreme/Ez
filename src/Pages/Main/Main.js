@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const enhance = compose(
-  withContainer(),
+  withContainer({ name: 'Main' }),
   connect(
     mapStateToProps,
     mapDispatchToProps,

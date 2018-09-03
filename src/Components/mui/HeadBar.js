@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
 
 import { Github } from '../../Assets'
 
@@ -33,9 +34,11 @@ const HeadBar = ({ classes, headerName }) => {
           <Typography variant="title" color="inherit" className={classes.flex}>
             {headerName}
           </Typography>
-          <Button className={classes.marginRight} color="inherit">
-            Feedback
-          </Button>
+          <Link to={'/feedback'}>
+            <Button className={classes.marginRight} color="inherit">
+              Feedback
+            </Button>
+          </Link>
           <a href="https://github.com/Clauzreme/Ez" target="_blank">
             <Button color="inherit" className={classes.round}>
               <img src={Github} alt="Github" />

@@ -7,9 +7,9 @@ import Header from '../../Components/Header/Header'
 
 import withContainer from '../../Components/withContainer'
 
-import './Arithmetics.scss'
+import './Feedback.scss'
 
-class Arithmetics extends Component {
+class Feedback extends Component {
   render() {
     const { headerName } = this.props
     return (
@@ -29,15 +29,15 @@ const mapDispatchToProps = dispatch => {
 }
 
 const enhance = compose(
-  withContainer({ name: 'Arithmetics' }),
+  withContainer({ name: 'Feedback' }),
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
 )
 
-export default enhance(Arithmetics)
+export default enhance(Feedback)
 
-Arithmetics.propTypes = {
+Feedback.propTypes = {
   headerName: PropTypes.string.isRequired,
 }

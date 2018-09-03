@@ -21,10 +21,7 @@ const withContainer = PropOptions => WrappedComponent => {
     }
 
     render() {
-      const {
-        drawerList,
-        location: { name },
-      } = this.props
+      const { drawerList } = this.props
 
       return (
         <Fragment>
@@ -33,10 +30,7 @@ const withContainer = PropOptions => WrappedComponent => {
             drawerList={drawerList}
           />
           <div className="rightSide">
-            <WrappedComponent
-              {...this.props}
-              headerName={name ? name : 'Main'}
-            />
+            <WrappedComponent {...this.props} headerName={PropOptions.name} />
           </div>
         </Fragment>
       )

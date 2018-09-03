@@ -36,12 +36,7 @@ class MainDrawer extends React.Component {
         }}
       >
         <div className={classes.toolbar}>
-          <Link
-            to={{
-              pathname: '/',
-              name: 'Main',
-            }}
-          >
+          <Link to={'/'}>
             <h1>Ez</h1>
           </Link>
         </div>
