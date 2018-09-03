@@ -4,17 +4,43 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
+import FeedbackForm from '../../Components/mui/FeedbackForm'
 
 import withContainer from '../../Components/withContainer'
 
 import './Feedback.scss'
 
 class Feedback extends Component {
+  state = {
+    name: '',
+    email: '',
+    feedback: '',
+    checkbox: false,
+  }
+
+  handleInputChange() {}
+
+  handleCheckboxChange() {}
+
+  handleSubmitClick() {}
+
   render() {
     const { headerName } = this.props
+    const { name, email, feedback, checkbox } = this.state
+
     return (
       <Fragment>
-        <Header headerName={headerName} />
+        <Header
+          headerName={headerName}
+          handleInputChange={() => this.handleInputChange()}
+          handleCheckboxChange={() => this.handleCheckboxChange()}
+          handleSubmitClick={() => this.handleSubmitClick()}
+          name={checkbox}
+          email={checkbox}
+          feedback={checkbox}
+          checkbox={checkbox}
+        />
+        <FeedbackForm />
       </Fragment>
     )
   }
