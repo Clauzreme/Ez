@@ -6,7 +6,7 @@ import moment from 'moment'
 import firebase from 'firebase'
 require('firebase/firestore')
 
-import { setDrawerList } from '../store/MuiLists/MuiListsActions'
+import { saveFeedbacks } from '../store/Feedbacks/FeedbacksActions'
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCnF305Sr5v0iGI6izB7r7uqjexUuJiY5k',
@@ -21,6 +21,8 @@ db.settings(settings)
 
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
+    componentDidMount() {}
+
     handleSubmitClick(feedback) {
       db.collection('feedback')
         .doc(JSON.stringify(Date.now()))
@@ -44,11 +46,15 @@ const withAPI = PropOptions => WrappedComponent => {
   }
 
   const mapStateToProps = state => {
-    return {}
+    return {
+      feedbacks: state.feedbacks.arr,
+    }
   }
 
   const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+      saveFeedbacks: bindActionCreators(saveFeedbacks, dispatch),
+    }
   }
 
   const enhance = compose(

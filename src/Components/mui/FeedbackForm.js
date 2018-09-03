@@ -40,7 +40,7 @@ class FeedbackForm extends React.Component {
       name,
       email,
       feedback,
-      checkbox,
+      hidden,
     } = this.props
 
     return (
@@ -80,7 +80,7 @@ class FeedbackForm extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={checkbox}
+                checked={hidden}
                 onChange={() => handleCheckboxChange()}
                 color="primary"
               />
@@ -109,7 +109,7 @@ FeedbackForm.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   feedback: PropTypes.string.isRequired,
-  checkbox: PropTypes.bool.isRequired,
+  hidden: PropTypes.bool.isRequired,
 }
 
 export default withStyles(styles)(FeedbackForm)

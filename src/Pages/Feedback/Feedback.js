@@ -16,7 +16,7 @@ class Feedback extends Component {
     name: '',
     email: '',
     feedback: '',
-    checkbox: false,
+    hidden: false,
   }
 
   handleInputChange(event, type) {
@@ -26,15 +26,15 @@ class Feedback extends Component {
   }
 
   handleCheckboxChange() {
-    const { checkbox } = this.state
+    const { hidden } = this.state
     this.setState({
-      checkbox: !checkbox,
+      hidden: !hidden,
     })
   }
 
   render() {
     const { headerName, handleSubmitClick } = this.props
-    const { name, email, feedback, checkbox } = this.state
+    const { name, email, feedback, hidden } = this.state
 
     return (
       <Fragment>
@@ -48,7 +48,7 @@ class Feedback extends Component {
           name={name}
           email={email}
           feedback={feedback}
-          checkbox={checkbox}
+          hidden={hidden}
         />
       </Fragment>
     )
