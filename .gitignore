@@ -2,6 +2,7 @@
 /build
 /compiled
 .DS_Store
-.log
+*.log
 .cache
 .css
+.firebase

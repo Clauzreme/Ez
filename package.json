@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.0.1",
     "@material-ui/icons": "^3.0.1",
+    "firebase": "^5.4.2",
     "moment": "^2.22.2",
     "parcel-bundler": "^1.9.7",
     "react": "^16.4.2",

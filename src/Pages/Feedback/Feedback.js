@@ -7,6 +7,7 @@ import Header from '../../Components/Header/Header'
 import FeedbackForm from '../../Components/mui/FeedbackForm'
 
 import withContainer from '../../Components/withContainer'
+import withAPI from '../../Components/withAPI'
 
 import './Feedback.scss'
 
@@ -31,12 +32,8 @@ class Feedback extends Component {
     })
   }
 
-  handleSubmitClick() {
-    console.log('submit click')
-  }
-
   render() {
-    const { headerName } = this.props
+    const { headerName, handleSubmitClick } = this.props
     const { name, email, feedback, checkbox } = this.state
 
     return (
@@ -47,7 +44,7 @@ class Feedback extends Component {
             this.handleInputChange(event, type)
           }
           handleCheckboxChange={() => this.handleCheckboxChange()}
-          handleSubmitClick={() => this.handleSubmitClick()}
+          handleSubmitClick={() => handleSubmitClick(this.state)}
           name={name}
           email={email}
           feedback={feedback}
@@ -68,6 +65,7 @@ const mapDispatchToProps = dispatch => {
 
 const enhance = compose(
   withContainer({ name: 'Feedback' }),
+  withAPI(),
   connect(
     mapStateToProps,
     mapDispatchToProps,
