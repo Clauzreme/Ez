@@ -18,11 +18,22 @@ class Feedback extends Component {
     checkbox: false,
   }
 
-  handleInputChange() {}
+  handleInputChange(event, type) {
+    this.setState({
+      [type]: event.target.value,
+    })
+  }
 
-  handleCheckboxChange() {}
+  handleCheckboxChange() {
+    const { checkbox } = this.state
+    this.setState({
+      checkbox: !checkbox,
+    })
+  }
 
-  handleSubmitClick() {}
+  handleSubmitClick() {
+    console.log('submit click')
+  }
 
   render() {
     const { headerName } = this.props
@@ -30,17 +41,18 @@ class Feedback extends Component {
 
     return (
       <Fragment>
-        <Header
-          headerName={headerName}
-          handleInputChange={() => this.handleInputChange()}
+        <Header headerName={headerName} />
+        <FeedbackForm
+          handleInputChange={(event, type) =>
+            this.handleInputChange(event, type)
+          }
           handleCheckboxChange={() => this.handleCheckboxChange()}
           handleSubmitClick={() => this.handleSubmitClick()}
-          name={checkbox}
-          email={checkbox}
-          feedback={checkbox}
+          name={name}
+          email={email}
+          feedback={feedback}
           checkbox={checkbox}
         />
-        <FeedbackForm />
       </Fragment>
     )
   }

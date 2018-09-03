@@ -30,7 +30,7 @@ const styles = theme => ({
   },
 })
 
-class TextFields extends React.Component {
+class FeedbackForm extends React.Component {
   render() {
     const {
       classes,
@@ -55,7 +55,7 @@ class TextFields extends React.Component {
           fullWidth
           className={classes.textField}
           margin="normal"
-          onChange={(a, b, c) => handleInputChange(a, b, c)}
+          onChange={event => handleInputChange(event, 'name')}
         />
         <TextField
           label="Email"
@@ -64,7 +64,7 @@ class TextFields extends React.Component {
           fullWidth
           className={classes.textField}
           margin="normal"
-          onChange={(a, b, c) => handleInputChange(a, b, c)}
+          onChange={event => handleInputChange(event, 'email')}
         />
         <TextField
           label="Feedback"
@@ -74,15 +74,14 @@ class TextFields extends React.Component {
           multiline
           className={classes.textField}
           margin="normal"
-          onChange={(a, b, c) => handleInputChange(a, b, c)}
+          onChange={event => handleInputChange(event, 'feedback')}
         />
-        <FormGroup row>
+        <div className="flex">
           <FormControlLabel
             control={
               <Checkbox
-                checked={true}
+                checked={checkbox}
                 onChange={() => handleCheckboxChange()}
-                value={checkbox}
                 color="primary"
               />
             }
@@ -96,13 +95,13 @@ class TextFields extends React.Component {
           >
             Submit
           </Button>
-        </FormGroup>
+        </div>
       </Paper>
     )
   }
 }
 
-TextFields.propTypes = {
+FeedbackForm.propTypes = {
   classes: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleCheckboxChange: PropTypes.func.isRequired,
@@ -113,4 +112,4 @@ TextFields.propTypes = {
   checkbox: PropTypes.bool.isRequired,
 }
 
-export default withStyles(styles)(TextFields)
+export default withStyles(styles)(FeedbackForm)
