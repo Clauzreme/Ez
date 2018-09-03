@@ -25,7 +25,7 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 })
 
-class PermanentDrawer extends React.Component {
+class MainDrawer extends React.Component {
   render() {
     const { classes, handleClick, drawerList } = this.props
 
@@ -50,8 +50,10 @@ class PermanentDrawer extends React.Component {
   }
 }
 
-PermanentDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
+export default withStyles(styles)(MainDrawer)
 
-export default withStyles(styles)(PermanentDrawer)
+MainDrawer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  drawerList: PropTypes.array.isRequired,
+}

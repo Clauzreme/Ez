@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import Drawer from './mui/Drawer'
@@ -9,12 +10,13 @@ import { setDrawerList } from '../store/MuiLists/MuiListsActions'
 
 const withContainer = PropOptions => WrappedComponent => {
   class withContainer extends Component {
-    componentDidMount() {}
-
     handleClick(idx) {
-      const { drawerList } = this.props
+      const { drawerList, setDrawerList } = this.props
       drawerList[idx] = !drawerList[idx]
+
       setDrawerList(drawerList)
+
+      this.setState({})
     }
 
     render() {
@@ -55,3 +57,8 @@ const withContainer = PropOptions => WrappedComponent => {
 }
 
 export default withContainer
+
+withContainer.propTypes = {
+  setDrawerList: PropTypes.func.isRequired,
+  drawerList: PropTypes.array.isRequired,
+}

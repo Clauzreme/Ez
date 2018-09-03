@@ -57,22 +57,21 @@ class DrawerList extends React.Component {
                 </Link>
               )
             }
+
             return (
               <Fragment key={key}>
                 <ListItem button onClick={() => handleClick(idx)}>
                   <ListItemText primary={key} />
                   {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse
-                  in={drawerList[idx]}
-                  timeout="auto"
-                  unmountOnExit
-                >
+                <Collapse in={drawerList[idx]} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    {Object.keys(listItems[key]).map(key2 => (
-                      <ListItem button key={key2}>
-                        <ListItemText primary={key2} />
-                      </ListItem>
+                    {Object.keys(listItems[key]).map(nested => (
+                      <Link to={val[nested]} key={nested}>
+                        <ListItem button>
+                          <ListItemText primary={nested} />
+                        </ListItem>
+                      </Link>
                     ))}
                   </List>
                 </Collapse>
@@ -85,10 +84,10 @@ class DrawerList extends React.Component {
   }
 }
 
+export default withStyles(styles)(DrawerList)
+
 DrawerList.propTypes = {
   classes: PropTypes.object.isRequired,
   handleClick: PropTypes.func.isRequired,
   drawerList: PropTypes.array.isRequired,
 }
-
-export default withStyles(styles)(DrawerList)
