@@ -7,7 +7,7 @@ import rootReducer from './RootReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [],
+  blacklist: ['muiLists'],
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

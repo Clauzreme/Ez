@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-// import Reducer from 'reducerLocation'
+import MuiListsReducer from './MuiLists/MuiListsReducer'
 
 export default combineReducers({
-  // reducer: Reducer,
+  muiLists: MuiListsReducer,
 })

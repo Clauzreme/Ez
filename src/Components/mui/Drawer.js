@@ -27,7 +27,7 @@ const styles = theme => ({
 
 class PermanentDrawer extends React.Component {
   render() {
-    const { classes } = this.props
+    const { classes, handleClick, drawerList } = this.props
 
     return (
       <Drawer
@@ -42,7 +42,7 @@ class PermanentDrawer extends React.Component {
           </Link>
         </div>
         <Divider />
-        <DrawerList />
+        <DrawerList handleClick={handleClick} drawerList={drawerList} />
         <Divider />
         <List />
       </Drawer>

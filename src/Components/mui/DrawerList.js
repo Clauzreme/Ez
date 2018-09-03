@@ -40,21 +40,13 @@ const styles = theme => ({
 })
 
 class DrawerList extends React.Component {
-  state = {
-    open: false,
-  }
-
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }))
-  }
-
   render() {
-    const { classes } = this.props
+    const { classes, handleClick, drawerList } = this.props
 
     return (
       <div className={classes.root}>
         <List component="nav">
-          {Object.keys(listItems).map(key => {
+          {Object.keys(listItems).map((key, idx) => {
             const val = listItems[key]
             if (typeof val === 'string') {
               return (
@@ -67,11 +59,15 @@ class DrawerList extends React.Component {
             }
             return (
               <Fragment key={key}>
-                <ListItem button onClick={this.handleClick}>
+                <ListItem button onClick={() => handleClick(idx)}>
                   <ListItemText primary={key} />
-                  {this.state.open ? <ExpandLess /> : <ExpandMore />}
+                  {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+                <Collapse
+                  in={drawerList[idx]}
+                  timeout="auto"
+                  unmountOnExit
+                >
                   <List component="div" disablePadding>
                     {Object.keys(listItems[key]).map(key2 => (
                       <ListItem button key={key2}>
@@ -91,6 +87,8 @@ class DrawerList extends React.Component {
 
 DrawerList.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  drawerList: PropTypes.array.isRequired,
 }
 
 export default withStyles(styles)(DrawerList)
