@@ -25,13 +25,13 @@ const styles = {
   },
 }
 
-const HeadBar = ({ classes }) => {
+const HeadBar = ({ classes, headerName }) => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            News
+            {headerName}
           </Typography>
           <Button className={classes.marginRight} color="inherit">
             Feedback
@@ -47,8 +47,9 @@ const HeadBar = ({ classes }) => {
   )
 }
 
+export default withStyles(styles)(HeadBar)
+
 HeadBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  headerName: PropTypes.string.isRequired,
 }
-
-export default withStyles(styles)(HeadBar)

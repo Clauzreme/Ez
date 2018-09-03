@@ -3,6 +3,7 @@ import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import { withRouter } from 'react-router-dom'
 
 import Drawer from './mui/Drawer'
 
@@ -20,7 +21,10 @@ const withContainer = PropOptions => WrappedComponent => {
     }
 
     render() {
-      const { drawerList } = this.props
+      const {
+        drawerList,
+        location: { name },
+      } = this.props
 
       return (
         <Fragment>
@@ -29,7 +33,10 @@ const withContainer = PropOptions => WrappedComponent => {
             drawerList={drawerList}
           />
           <div className="rightSide">
-            <WrappedComponent {...this.props} />
+            <WrappedComponent
+              {...this.props}
+              headerName={name ? name : 'Main'}
+            />
           </div>
         </Fragment>
       )
@@ -53,6 +60,7 @@ const withContainer = PropOptions => WrappedComponent => {
       mapStateToProps,
       mapDispatchToProps,
     ),
+    withRouter,
   )
 
   return enhance(withContainer)

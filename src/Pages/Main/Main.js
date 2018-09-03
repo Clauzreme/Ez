@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
 
@@ -10,9 +11,10 @@ import './Main.scss'
 
 class Main extends Component {
   render() {
+    const { headerName } = this.props
     return (
       <Fragment>
-        <Header />
+        <Header headerName={headerName} />
       </Fragment>
     )
   }
@@ -35,3 +37,7 @@ const enhance = compose(
 )
 
 export default enhance(Main)
+
+Main.propTypes = {
+  headerName: PropTypes.string.isRequired,
+}

@@ -50,7 +50,13 @@ class DrawerList extends React.Component {
             const val = listItems[key]
             if (typeof val === 'string') {
               return (
-                <Link to={val} key={key}>
+                <Link
+                  to={{
+                    pathname: key,
+                    name: key,
+                  }}
+                  key={key}
+                >
                   <ListItem button>
                     <ListItemText primary={key} />
                   </ListItem>
@@ -67,7 +73,13 @@ class DrawerList extends React.Component {
                 <Collapse in={drawerList[idx]} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {Object.keys(listItems[key]).map(nested => (
-                      <Link to={val[nested]} key={nested}>
+                      <Link
+                        to={{
+                          pathname: val[nested],
+                          name: val[nested],
+                        }}
+                        key={nested}
+                      >
                         <ListItem button>
                           <ListItemText primary={nested} />
                         </ListItem>
