@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  feedbacks: [],
+  arr: [],
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'saveFeedbacks':
       return {
         ...state,
-        feedbacks: state.feedbacks.concat(action.feedbacks),
+        arr: state.feedbacks.concat(action.feedbacks),
       }
     default:
       return state

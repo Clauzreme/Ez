@@ -21,7 +21,10 @@ db.settings(settings)
 
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
-    componentDidMount() {}
+    constructor(props) {
+      super(props)
+      this.loadFeedback()
+    }
 
     handleSubmitClick(feedback) {
       db.collection('feedback')
@@ -35,11 +38,34 @@ const withAPI = PropOptions => WrappedComponent => {
         })
     }
 
+    loadFeedback() {
+      const { saveFeedbacks } = this.props
+      var feedbackRef = db.collection('feedback').where('hidden', '==', false)
+
+      const feedbacks = []
+
+      feedbackRef
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            const data = doc.data()
+            delete data.email
+
+            feedbacks.push(data)
+          })
+          saveFeedbacks(feedbacks)
+        })
+        .catch(err => {
+          console.log('Error getting documents: ', err)
+        })
+    }
+
     render() {
       return (
         <WrappedComponent
           {...this.props}
           handleSubmitClick={feedback => this.handleSubmitClick(feedback)}
+          loadFeedback={() => this.loadFeedback()}
         />
       )
     }
@@ -69,6 +95,7 @@ const withAPI = PropOptions => WrappedComponent => {
 
 export default withAPI
 
-// withAPI.propTypes = {
-//   headerName: PropTypes.string.isRequired,
-// }
+withAPI.propTypes = {
+  headerName: PropTypes.string.isRequired,
+  feedbacks: PropTypes.array.isRequired,
+}

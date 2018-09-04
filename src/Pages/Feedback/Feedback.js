@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
 import FeedbackForm from '../../Components/mui/FeedbackForm'
+import FeedbackList from '../../Components/FeedbackList/FeedbackList'
 
 import withContainer from '../../Components/withContainer'
 import withAPI from '../../Components/withAPI'
@@ -33,12 +34,18 @@ class Feedback extends Component {
   }
 
   render() {
-    const { headerName, handleSubmitClick } = this.props
+    const {
+      headerName,
+      handleSubmitClick,
+      feedbacks,
+      loadFeedback,
+    } = this.props
     const { name, email, feedback, hidden } = this.state
 
     return (
       <Fragment>
         <Header headerName={headerName} />
+        <FeedbackList feedbacks={feedbacks} loadFeedback={loadFeedback} />
         <FeedbackForm
           handleInputChange={(event, type) =>
             this.handleInputChange(event, type)
@@ -76,4 +83,5 @@ export default enhance(Feedback)
 
 Feedback.propTypes = {
   headerName: PropTypes.string.isRequired,
+  loadFeedback: PropTypes.func.isRequired,
 }
