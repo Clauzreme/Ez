@@ -6,17 +6,19 @@ import firebase from 'firebase'
 
 import { saveFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
 
+import { apiKey, authDomain, projectId } from '../configs/configs'
+
 require('firebase/firestore')
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyCnF305Sr5v0iGI6izB7r7uqjexUuJiY5k',
-  authDomain: 'ezez-project.firebaseapp.com',
-  projectId: 'ezez-project',
+  apiKey,
+  authDomain,
+  projectId,
 })
 
 const db = firebase.firestore()
 
-const settings = { /* your settings... */ timestampsInSnapshots: true }
+const settings = { timestampsInSnapshots: true }
 db.settings(settings)
 
 const withAPI = PropOptions => WrappedComponent => {
