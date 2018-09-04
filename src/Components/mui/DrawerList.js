@@ -11,17 +11,20 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import { Link } from 'react-router-dom'
 
 const listItems = {
-  'Built-in Types': {
-    String: '/string',
-    Digit: '/digit',
-    Float: '/float',
-    Boolean: '/boolean',
-    Undefined: '/undefined',
-    Null: '/null',
-    Array: '/array',
-    Object: '/object',
-    Set: '/set',
-  },
+  'Built-in Types': [
+    {
+      String: '/string',
+      Digit: '/digit',
+      Float: '/float',
+      Boolean: '/boolean',
+      Undefined: '/undefined',
+      Null: '/null',
+      Array: '/array',
+      Object: '/object',
+      Set: '/set',
+    },
+    '/builtInTypes',
+  ],
   Arithmetics: '/arithmetics',
 }
 
@@ -52,18 +55,23 @@ class DrawerList extends React.Component {
               )
             }
 
+            const nested = val[0]
+            const mainLink = val[1]
+
             return (
               <Fragment key={key}>
-                <ListItem button onClick={() => handleClick(idx)}>
-                  <ListItemText primary={key} />
-                  {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
+                <Link to={mainLink}>
+                  <ListItem button onClick={() => handleClick(idx)}>
+                    <ListItemText primary={key} />
+                    {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
+                  </ListItem>
+                </Link>
                 <Collapse in={drawerList[idx]} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    {Object.keys(listItems[key]).map(nested => (
-                      <Link to={val[nested]} key={nested}>
+                    {Object.keys(nested).map(nestedKey => (
+                      <Link to={nested[nestedKey]} key={nestedKey}>
                         <ListItem button>
-                          <ListItemText primary={nested} />
+                          <ListItemText primary={nestedKey} />
                         </ListItem>
                       </Link>
                     ))}
