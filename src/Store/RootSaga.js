@@ -1,6 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects'
 
-import * as FeedbacksSaga from './FeedbacksSaga'
+import * as FeedbacksSaga from './Feedbacks/FeedbacksSaga'
 
 import api from '../api/api'
 

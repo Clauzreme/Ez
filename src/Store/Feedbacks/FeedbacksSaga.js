@@ -1,12 +1,15 @@
 import { call, put } from 'redux-saga/effects'
 
-import { fetchDealsSuccess, fetchDealsFailure } from './FeedbacksActions'
+import {
+  fetchFeedbacksSuccess,
+  fetchFeedbacksFailure,
+} from './FeedbacksActions'
 
 export function* fetchFeedbacks(api, action) {
   try {
     const response = yield call(api.fetchFeedbacks, action.options)
-    yield put(fetchDealsSuccess(response))
+    yield put(fetchFeedbacksSuccess(response))
   } catch (error) {
-    yield put(fetchDealsFailure(error))
+    yield put(fetchFeedbacksFailure(error))
   }
 }

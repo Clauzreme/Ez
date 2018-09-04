@@ -6,13 +6,13 @@ import FeedbackCard from '../mui/FeedbackCard'
 
 import './FeedbackList.css'
 
-const FeedbackList = ({ feedbacks, loadFeedback }) => {
+const FeedbackList = ({ feedbacks, fetchFeedbacks }) => {
   return (
     <Fragment>
       {feedbacks.map((feedback, id) => (
         <FeedbackCard feedback={feedback} key={id} />
       ))},
-      <Waypoint onEnter={loadFeedback} />
+      <Waypoint onEnter={fetchFeedbacks} />
     </Fragment>
   )
 }
@@ -21,5 +21,5 @@ export default FeedbackList
 
 FeedbackList.propTypes = {
   feedbacks: PropTypes.array.isRequired,
-  loadFeedback: PropTypes.func.isRequired,
+  fetchFeedbacks: PropTypes.func.isRequired,
 }

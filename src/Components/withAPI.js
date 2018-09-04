@@ -2,98 +2,48 @@ import React, { Component } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import firebase from 'firebase'
 
-import { saveFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
-
-import { apiKey, authDomain, projectId } from '../configs/configs'
-
-require('firebase/firestore')
-
-firebase.initializeApp({
-  apiKey,
-  authDomain,
-  projectId,
-})
-
-const db = firebase.firestore()
-
-const settings = { timestampsInSnapshots: true }
-db.settings(settings)
+import { fetchFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
 
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
     componentDidMount() {
       const { feedbacks } = this.props
       if (!feedbacks.length) {
-        this.loadFeedback()
+        this.fetchFeedbacks()
       }
+    }
+
+    fetchFeedbacks() {
+      const { lastDoc, fetchFeedbacks } = this.props
+      fetchFeedbacks(lastDoc)
+    }
+
+    componentDidUpdate(a, b, c) {
+      console.log(a, b, c, 'abc')
     }
 
     handleSubmitClick(feedback) {
-      const now = JSON.stringify(Date.now())
-      feedback.time = now
-      db.collection('feedback')
-        .doc(now)
-        .set(feedback)
-        .then(() => {
-          console.log('Document successfully written!')
-        })
-        .catch(error => {
-          console.error('Error writing document: ', error)
-        })
-    }
-
-    loadFeedback() {
-      const { saveFeedbacks, lastDoc } = this.props
-
-      console.log(lastDoc)
-
-      let dbRef
-
-      if (lastDoc) {
-        dbRef = db
-          .collection('feedback')
-          .where('hidden', '==', false)
-          .orderBy('time', 'desc')
-          .startAfter(lastDoc)
-          .limit(25)
-      } else {
-        dbRef = db
-          .collection('feedback')
-          .where('hidden', '==', false)
-          .orderBy('time', 'desc')
-          .limit(25)
-      }
-
-      const newFeedbacks = []
-
-      dbRef
-        .get()
-        .then(querySnapshot => {
-          let newLastDoc
-          querySnapshot.forEach(doc => {
-            const data = doc.data()
-            delete data.email
-            delete data.hidden
-            newLastDoc = doc
-            newFeedbacks.push(data)
-          })
-          if (newFeedbacks.length) {
-            saveFeedbacks(newFeedbacks, newLastDoc)
-          }
-        })
-        .catch(err => {
-          console.log('Error getting documents: ', err)
-        })
+      // const now = JSON.stringify(Date.now())
+      // feedback.time = now
+      // db.collection('feedback')
+      //   .doc(now)
+      //   .set(feedback)
+      //   .then(() => {
+      //     console.log('Document successfully written!')
+      //   })
+      //   .catch(error => {
+      //     console.error('Error writing document: ', error)
+      //   })
     }
 
     render() {
+      console.log(this.props)
       return (
         <WrappedComponent
           {...this.props}
           handleSubmitClick={feedback => this.handleSubmitClick(feedback)}
-          loadFeedback={() => this.loadFeedback()}
+          fetchFeedbacks={() => this.fetchFeedbacks()}
         />
       )
     }
@@ -108,7 +58,7 @@ const withAPI = PropOptions => WrappedComponent => {
 
   const mapDispatchToProps = dispatch => {
     return {
-      saveFeedbacks: bindActionCreators(saveFeedbacks, dispatch),
+      fetchFeedbacks: bindActionCreators(fetchFeedbacks, dispatch),
     }
   }
 

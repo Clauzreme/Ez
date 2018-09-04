@@ -38,7 +38,7 @@ class Feedback extends Component {
       headerName,
       handleSubmitClick,
       feedbacks,
-      loadFeedback,
+      fetchFeedbacks,
     } = this.props
     const { name, email, feedback, hidden } = this.state
 
@@ -56,7 +56,7 @@ class Feedback extends Component {
           feedback={feedback}
           hidden={hidden}
         />
-        <FeedbackList feedbacks={feedbacks} loadFeedback={loadFeedback} />
+        <FeedbackList feedbacks={feedbacks} fetchFeedbacks={fetchFeedbacks} />
       </Fragment>
     )
   }
@@ -83,5 +83,5 @@ export default enhance(Feedback)
 
 Feedback.propTypes = {
   headerName: PropTypes.string.isRequired,
-  loadFeedback: PropTypes.func.isRequired,
+  fetchFeedbacks: PropTypes.func.isRequired,
 }

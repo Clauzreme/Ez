@@ -37,12 +37,14 @@ const withContainer = PropOptions => WrappedComponent => {
   }
 
   const mapStateToProps = state => {
+    console.log('new')
     return {
       drawerList: state.muiLists.drawerList,
     }
   }
 
   const mapDispatchToProps = dispatch => {
+    console.log('new')
     return {
       setDrawerList: bindActionCreators(setDrawerList, dispatch),
     }
