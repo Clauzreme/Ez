@@ -45,7 +45,6 @@ class Feedback extends Component {
     return (
       <Fragment>
         <Header headerName={headerName} />
-        <FeedbackList feedbacks={feedbacks} loadFeedback={loadFeedback} />
         <FeedbackForm
           handleInputChange={(event, type) =>
             this.handleInputChange(event, type)
@@ -57,6 +56,7 @@ class Feedback extends Component {
           feedback={feedback}
           hidden={hidden}
         />
+        <FeedbackList feedbacks={feedbacks} loadFeedback={loadFeedback} />
       </Fragment>
     )
   }

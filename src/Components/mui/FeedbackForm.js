@@ -49,7 +49,7 @@ class FeedbackForm extends React.Component {
           Send a feedback
         </Typography>
         <TextField
-          label="Name"
+          label="Name (optional)"
           value={name}
           placeholder="public name"
           fullWidth
@@ -58,7 +58,7 @@ class FeedbackForm extends React.Component {
           onChange={event => handleInputChange(event, 'name')}
         />
         <TextField
-          label="Email"
+          label="Email (optional)"
           value={email}
           placeholder="private, only I can see"
           fullWidth

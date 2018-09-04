@@ -49,14 +49,14 @@ const withAPI = PropOptions => WrappedComponent => {
         dbRef = db
           .collection('feedback')
           .where('hidden', '==', false)
-          .orderBy('time')
+          .orderBy('time', 'desc')
           .startAfter(lastDoc)
           .limit(25)
       } else {
         dbRef = db
           .collection('feedback')
           .where('hidden', '==', false)
-          .orderBy('time')
+          .orderBy('time', 'desc')
           .limit(25)
       }
 
