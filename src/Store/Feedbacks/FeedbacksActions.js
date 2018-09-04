@@ -1,8 +1,20 @@
-export const saveFeedbacks = (feedbacks, lastDoc) => {
-  console.log(lastDoc)
+export const fetchFeedbacks = options => {
   return {
-    type: 'saveFeedbacks',
-    feedbacks,
-    lastDoc,
+    type: 'Feedbacks//fetchFeedbacks',
+    options,
+  }
+}
+
+export const fetchFeedbacksSuccess = options => {
+  return {
+    type: 'Feedbacks//fetchFeedbacksSuccess',
+    feedbacks: options.feedbacks,
+    lastDoc: options.lastDoc,
+  }
+}
+
+export const fetchFeedbacksFailure = () => {
+  return {
+    type: 'Feedbacks//fetchFeedbacksFailure',
   }
 }

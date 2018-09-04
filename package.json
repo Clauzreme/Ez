@@ -13,7 +13,8 @@
     "react-router-dom": "^4.3.1",
     "react-waypoint": "^8.0.3",
     "redux": "^4.0.0",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -24,11 +25,11 @@
   },
   "scripts": {
     "build:css": "node-sass-chokidar src/ -o src/",
-		"watch:css": "node-sass-chokidar src/ -o src/ --watch --recursive",
-		"start:js": "react-scripts start",
-		"build:js": "react-scripts build",
-		"start": "npm-run-all -p build:css watch:css start:js",
-		"build": "npm-run-all -p build:css build:js",
+    "watch:css": "node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start:js": "react-scripts start",
+    "build:js": "react-scripts build",
+    "start": "npm-run-all -p build:css watch:css start:js",
+    "build": "npm-run-all -p build:css build:js",
     "start-lan": "npm-run-all -p babel compile",
     "deploy": "yarn build && firebase deploy",
     "babel": "rm -rf compiled && cp -R compiling compiled && babel compiled compiled",
