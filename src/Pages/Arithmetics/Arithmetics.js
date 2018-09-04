@@ -7,7 +7,7 @@ import Header from '../../Components/Header/Header'
 
 import withContainer from '../../Components/withContainer'
 
-import './Arithmetics.scss'
+import './Arithmetics.css'
 
 class Arithmetics extends Component {
   render() {

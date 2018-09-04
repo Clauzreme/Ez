@@ -1,1 +1,1 @@
-export { default as Github } from './Images/Logos/Github.png'
+export { default as GitHub } from './Images/Logos/GitHub.png'

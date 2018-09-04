@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import FeedbackCard from '../mui/FeedbackCard'
 
-import './FeedbackList.scss'
+import './FeedbackList.css'
 
 const FeedbackList = ({ feedbacks, loadFeedback }) => {
   return (

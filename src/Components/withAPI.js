@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import firebase from 'firebase'
-require('firebase/firestore')
 
-import { saveFeedbacks } from '../store/Feedbacks/FeedbacksActions'
+import { saveFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
+
+require('firebase/firestore')
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCnF305Sr5v0iGI6izB7r7uqjexUuJiY5k',
@@ -21,9 +22,11 @@ db.settings(settings)
 
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
-    constructor(props) {
-      super(props)
-      this.loadFeedback()
+    componentDidMount() {
+      const { feedbacks } = this.props
+      if (!feedbacks.length) {
+        this.loadFeedback()
+      }
     }
 
     handleSubmitClick(feedback) {
@@ -42,6 +45,8 @@ const withAPI = PropOptions => WrappedComponent => {
 
     loadFeedback() {
       const { saveFeedbacks, feedbacks, lastDoc } = this.props
+
+      console.log(lastDoc)
 
       let dbRef
 
@@ -73,6 +78,7 @@ const withAPI = PropOptions => WrappedComponent => {
             newLastDoc = doc
             newFeedbacks.push(data)
           })
+          console.log(newLastDoc)
           saveFeedbacks(newFeedbacks, newLastDoc)
         })
         .catch(err => {

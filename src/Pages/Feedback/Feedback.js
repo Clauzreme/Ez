@@ -10,7 +10,7 @@ import FeedbackList from '../../Components/FeedbackList/FeedbackList'
 import withContainer from '../../Components/withContainer'
 import withAPI from '../../Components/withAPI'
 
-import './Feedback.scss'
+import './Feedback.css'
 
 class Feedback extends Component {
   state = {

@@ -13,7 +13,7 @@ import pink from '@material-ui/core/colors/pink'
 import red from '@material-ui/core/colors/red'
 import blue from '@material-ui/core/colors/blue'
 
-import './Utils/index.scss'
+import './Utils/index.css'
 import registerServiceWorker from './Utils/registerServiceWorker'
 
 // persistor.purge()
@@ -40,7 +40,7 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-          <Router />
+        <Router />
       </PersistGate>
     </Provider>
   </MuiThemeProvider>

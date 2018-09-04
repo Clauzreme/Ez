@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import HeadBar from '../mui/HeadBar'
 
-import './Header.scss'
+import './Header.css'
 
 const Header = ({ headerName }) => <HeadBar headerName={headerName} />
 

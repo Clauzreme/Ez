@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom'
 
 import Drawer from './mui/Drawer'
 
-import { setDrawerList } from '../store/MuiLists/MuiListsActions'
+import { setDrawerList } from '../Store/MuiLists/MuiListsActions'
 
 const withContainer = PropOptions => WrappedComponent => {
   class withContainer extends Component {

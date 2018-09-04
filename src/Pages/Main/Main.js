@@ -7,7 +7,7 @@ import Header from '../../Components/Header/Header'
 
 import withContainer from '../../Components/withContainer'
 
-import './Main.scss'
+import './Main.css'
 
 class Main extends Component {
   render() {

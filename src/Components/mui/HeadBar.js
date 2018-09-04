@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 
-import { Github } from '../../Assets'
+import { GitHub } from '../../Assets'
 
 const styles = {
   root: {
@@ -41,7 +41,7 @@ const HeadBar = ({ classes, headerName }) => {
           </Link>
           <a href="https://github.com/Clauzreme/Ez" target="_blank">
             <Button color="inherit" className={classes.round}>
-              <img src={Github} alt="Github" />
+              <img src={GitHub} alt="GitHub" />
             </Button>
           </a>
         </Toolbar>
