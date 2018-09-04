@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
 import FeedbackForm from '../../Components/mui/FeedbackForm'
+import Dialog from '../../Components/mui/Dialog'
 import FeedbackList from '../../Components/FeedbackList/FeedbackList'
 
 import withContainer from '../../Components/withContainer'
@@ -15,6 +16,10 @@ import { updateFeedbackForm } from '../../Store/SubmitFeedback/SubmitFeedbackAct
 import './Feedback.css'
 
 class Feedback extends Component {
+  state = {
+    dialogOpen: false,
+  }
+
   handleInputChange(event, type) {
     const { form, updateFeedbackForm } = this.props
     form[type] = event.target.value
@@ -27,26 +32,47 @@ class Feedback extends Component {
     updateFeedbackForm(form)
   }
 
+  handleSubmitClick() {
+    const { handleSubmitClick, form } = this.props
+
+    if (form.feedback) {
+      handleSubmitClick()
+    } else {
+      this.setState({
+        dialogOpen: true,
+      })
+    }
+  }
+
+  handleDialogClose() {
+    this.setState({
+      dialogOpen: false,
+    })
+  }
+
   render() {
     const {
       headerName,
-      handleSubmitClick,
       feedbacks,
       fetchFeedbacks,
       form: { name, email, feedback, hidden },
     } = this.props
 
-    console.log(name, email, feedback, hidden)
+    const { dialogOpen } = this.state
 
     return (
       <Fragment>
         <Header headerName={headerName} />
+        <Dialog
+          open={dialogOpen}
+          handleClose={() => this.handleDialogClose()}
+        />
         <FeedbackForm
           handleInputChange={(event, type) =>
             this.handleInputChange(event, type)
           }
           handleCheckboxChange={() => this.handleCheckboxChange()}
-          handleSubmitClick={() => handleSubmitClick()}
+          handleSubmitClick={() => this.handleSubmitClick()}
           name={name}
           email={email}
           feedback={feedback}

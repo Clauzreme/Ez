@@ -9,7 +9,7 @@ export default function* rootSaga() {
   yield all([
     takeLatest('Feedbacks//fetchFeedbacks', FeedbacksSaga.fetchFeedbacks, api),
     takeLatest(
-      'SubmitFeedback//SubmitFeedback',
+      'SubmitFeedback//submitFeedback',
       SubmitFeedbackSaga.submitFeedback,
       api,
     ),
