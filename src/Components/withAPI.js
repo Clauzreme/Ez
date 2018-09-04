@@ -27,8 +27,10 @@ const withAPI = PropOptions => WrappedComponent => {
     }
 
     handleSubmitClick(feedback) {
+      const now = JSON.stringify(Date.now())
+      feedback.time = now
       db.collection('feedback')
-        .doc(JSON.stringify(Date.now()))
+        .doc(now)
         .set(feedback)
         .then(() => {
           console.log('Document successfully written!')
@@ -39,21 +41,39 @@ const withAPI = PropOptions => WrappedComponent => {
     }
 
     loadFeedback() {
-      const { saveFeedbacks } = this.props
-      var feedbackRef = db.collection('feedback').where('hidden', '==', false)
+      const { saveFeedbacks, feedbacks, lastDoc } = this.props
 
-      const feedbacks = []
+      let dbRef
 
-      feedbackRef
+      if (lastDoc) {
+        dbRef = db
+          .collection('feedback')
+          .where('hidden', '==', false)
+          .orderBy('time')
+          .startAfter(lastDoc)
+          .limit(25)
+      } else {
+        dbRef = db
+          .collection('feedback')
+          .where('hidden', '==', false)
+          .orderBy('time')
+          .limit(25)
+      }
+
+      const newFeedbacks = []
+
+      dbRef
         .get()
         .then(querySnapshot => {
+          let newLastDoc
           querySnapshot.forEach(doc => {
             const data = doc.data()
             delete data.email
-
-            feedbacks.push(data)
+            delete data.hidden
+            newLastDoc = doc
+            newFeedbacks.push(data)
           })
-          saveFeedbacks(feedbacks)
+          saveFeedbacks(newFeedbacks, newLastDoc)
         })
         .catch(err => {
           console.log('Error getting documents: ', err)
@@ -74,6 +94,7 @@ const withAPI = PropOptions => WrappedComponent => {
   const mapStateToProps = state => {
     return {
       feedbacks: state.feedbacks.arr,
+      lastDoc: state.feedbacks.lastDoc,
     }
   }
 

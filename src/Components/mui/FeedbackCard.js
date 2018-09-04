@@ -22,7 +22,7 @@ const FeedbackCard = ({ classes, feedback }) => (
   <Card className={classes.card}>
     <CardContent>
       <Typography gutterBottom variant="headline" component="h2">
-        {feedback.name}
+        {feedback.name ? feedback.name : 'Anonymous'}
       </Typography>
       <Typography component="p">{feedback.feedback}</Typography>
     </CardContent>
