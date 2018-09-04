@@ -6,11 +6,10 @@ export const fetchFeedbacks = options => {
 }
 
 export const fetchFeedbacksSuccess = options => {
-  console.log('opt', options)
   return {
     type: 'Feedbacks//fetchFeedbacksSuccess',
-    feedbacks: options.feedbacks,
-    lastDoc: options.lastDoc,
+    newFeedbacks: options.newFeedbacks,
+    newLastDoc: options.newLastDoc,
   }
 }
 

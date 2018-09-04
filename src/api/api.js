@@ -17,7 +17,6 @@ db.settings(settings)
 
 class API {
   async fetchFeedbacks(lastDoc) {
-    console.log(lastDoc)
     let dbRef
 
     if (lastDoc) {
@@ -47,11 +46,10 @@ class API {
         newLastDoc = doc
         newFeedbacks.push(data)
       })
-      console.log(newFeedbacks)
       if (newFeedbacks.length) {
         return { newFeedbacks, newLastDoc }
       } else {
-        throw 'empty'
+        throw { reason: 'empty' }
       }
     } catch (err) {
       console.log('Error getting documents: ', err)

@@ -19,10 +19,6 @@ const withAPI = PropOptions => WrappedComponent => {
       fetchFeedbacks(lastDoc)
     }
 
-    componentDidUpdate(a, b, c) {
-      console.log(a, b, c, 'abc')
-    }
-
     handleSubmitClick(feedback) {
       // const now = JSON.stringify(Date.now())
       // feedback.time = now
@@ -38,7 +34,6 @@ const withAPI = PropOptions => WrappedComponent => {
     }
 
     render() {
-      console.log(this.props)
       return (
         <WrappedComponent
           {...this.props}
