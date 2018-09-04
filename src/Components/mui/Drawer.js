@@ -31,7 +31,8 @@ class MainDrawer extends React.Component {
       >
         <div className={classes.toolbar}>
           <Link to={'/'}>
-            <h1>Ez</h1>
+            <h1 className="leftTitleEz">Ez</h1>
+            <h5 className="versionEz">V. 0.1.0</h5>
           </Link>
         </div>
         <Divider />
