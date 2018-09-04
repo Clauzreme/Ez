@@ -79,8 +79,9 @@ const withAPI = PropOptions => WrappedComponent => {
             newLastDoc = doc
             newFeedbacks.push(data)
           })
-          console.log(newLastDoc)
-          saveFeedbacks(newFeedbacks, newLastDoc)
+          if (newFeedbacks.length) {
+            saveFeedbacks(newFeedbacks, newLastDoc)
+          }
         })
         .catch(err => {
           console.log('Error getting documents: ', err)
