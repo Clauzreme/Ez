@@ -25,7 +25,7 @@ const listItems = {
     },
     '/builtInTypes',
   ],
-  Arithmetics: '/arithmetics',
+  Mathematics: '/arithmetics',
 }
 
 const styles = theme => ({

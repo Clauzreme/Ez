@@ -4,17 +4,21 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
+import PaperContainer from '../../Components/mui/PaperContainer'
 
 import withContainer from '../../Components/withContainer'
 
-import './Arithmetics.css'
+import './Mathematics.css'
 
-class Arithmetics extends Component {
+class Mathematics extends Component {
   render() {
     const { headerName } = this.props
     return (
       <Fragment>
         <Header headerName={headerName} />
+        <PaperContainer>
+          <h2>Expressions and operators in Mathematics</h2>
+        </PaperContainer>
       </Fragment>
     )
   }
@@ -29,15 +33,15 @@ const mapDispatchToProps = dispatch => {
 }
 
 const enhance = compose(
-  withContainer({ name: 'Arithmetics' }),
+  withContainer({ name: 'Mathematics' }),
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
 )
 
-export default enhance(Arithmetics)
+export default enhance(Mathematics)
 
-Arithmetics.propTypes = {
+Mathematics.propTypes = {
   headerName: PropTypes.string.isRequired,
 }
