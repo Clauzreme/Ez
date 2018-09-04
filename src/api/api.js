@@ -10,7 +10,7 @@ firebase.initializeApp({
   projectId,
 })
 
-const db = firebase.firestore()
+export const db = firebase.firestore()
 
 const settings = { timestampsInSnapshots: true }
 db.settings(settings)
@@ -62,6 +62,11 @@ class API {
       await db
         .collection('feedback')
         .doc(feedback.time)
+        .set(feedback)
+
+      await db
+        .collection('feedback')
+        .doc('lastUpdated')
         .set(feedback)
 
       console.log('Document successfully written!')

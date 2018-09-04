@@ -3,6 +3,8 @@ import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import { db } from '../api/api'
+
 import { fetchFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
 
 import {
@@ -12,11 +14,25 @@ import {
 
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
+    onUpdateListener() {
+      this.unlisten = db
+        .collection('feedback')
+        .doc('lastUpdated')
+        .onSnapshot(doc => {
+          console.log(doc)
+        })
+    }
+
     componentDidMount() {
+      this.onUpdateListener()
       const { feedbacks } = this.props
       if (!feedbacks.length) {
         this.fetchFeedbacks()
       }
+    }
+
+    componenWillUnmount() {
+      this.unlisten()
     }
 
     fetchFeedbacks() {
