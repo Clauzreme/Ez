@@ -10,27 +10,21 @@ import FeedbackList from '../../Components/FeedbackList/FeedbackList'
 import withContainer from '../../Components/withContainer'
 import withAPI from '../../Components/withAPI'
 
+import { updateFeedbackForm } from '../../Store/SubmitFeedback/SubmitFeedbackActions'
+
 import './Feedback.css'
 
 class Feedback extends Component {
-  state = {
-    name: '',
-    email: '',
-    feedback: '',
-    hidden: false,
-  }
-
   handleInputChange(event, type) {
-    this.setState({
-      [type]: event.target.value,
-    })
+    const { form, updateFeedbackForm } = this.props
+    form[type] = event.target.value
+    updateFeedbackForm(form)
   }
 
   handleCheckboxChange() {
-    const { hidden } = this.state
-    this.setState({
-      hidden: !hidden,
-    })
+    const { form, updateFeedbackForm } = this.props
+    form.hidden = !form.hidden
+    updateFeedbackForm(form)
   }
 
   render() {
@@ -39,8 +33,10 @@ class Feedback extends Component {
       handleSubmitClick,
       feedbacks,
       fetchFeedbacks,
+      form: { name, email, feedback, hidden },
     } = this.props
-    const { name, email, feedback, hidden } = this.state
+
+    console.log(name, email, feedback, hidden)
 
     return (
       <Fragment>
@@ -50,7 +46,7 @@ class Feedback extends Component {
             this.handleInputChange(event, type)
           }
           handleCheckboxChange={() => this.handleCheckboxChange()}
-          handleSubmitClick={() => handleSubmitClick(this.state)}
+          handleSubmitClick={() => handleSubmitClick()}
           name={name}
           email={email}
           feedback={feedback}
@@ -67,7 +63,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    updateFeedbackForm: bindActionCreators(updateFeedbackForm, dispatch),
+  }
 }
 
 const enhance = compose(

@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 
 import { fetchFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
 
+import {
+  submitFeedback,
+  disableSubmit,
+} from '../Store/SubmitFeedback/SubmitFeedbackActions'
+
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
     componentDidMount() {
@@ -19,18 +24,13 @@ const withAPI = PropOptions => WrappedComponent => {
       fetchFeedbacks(lastDoc)
     }
 
-    handleSubmitClick(feedback) {
-      // const now = JSON.stringify(Date.now())
-      // feedback.time = now
-      // db.collection('feedback')
-      //   .doc(now)
-      //   .set(feedback)
-      //   .then(() => {
-      //     console.log('Document successfully written!')
-      //   })
-      //   .catch(error => {
-      //     console.error('Error writing document: ', error)
-      //   })
+    handleSubmitClick() {
+      const { submitFeedback, disableSubmit, form } = this.props
+      const now = JSON.stringify(Date.now())
+      form.time = now
+
+      disableSubmit(disableSubmit)
+      submitFeedback(form)
     }
 
     render() {
@@ -48,12 +48,15 @@ const withAPI = PropOptions => WrappedComponent => {
     return {
       feedbacks: state.feedbacks.arr,
       lastDoc: state.feedbacks.lastDoc,
+      form: state.submitFeedback.form,
     }
   }
 
   const mapDispatchToProps = dispatch => {
     return {
       fetchFeedbacks: bindActionCreators(fetchFeedbacks, dispatch),
+      submitFeedback: bindActionCreators(submitFeedback, dispatch),
+      disableSubmit: bindActionCreators(disableSubmit, dispatch),
     }
   }
 

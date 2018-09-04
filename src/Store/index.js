@@ -11,7 +11,7 @@ const sagaMiddleware = createSagaMiddleware()
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['muiLists', 'feedbacks'],
+  blacklist: ['muiLists', 'feedbacks', 'submitFeedback'],
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

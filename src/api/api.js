@@ -56,6 +56,21 @@ class API {
       throw err
     }
   }
+
+  async submitFeedback(feedback) {
+    try {
+      await db
+        .collection('feedback')
+        .doc(feedback.time)
+        .set(feedback)
+
+      console.log('Document successfully written!')
+      return {}
+    } catch (err) {
+      console.error('Error writing document: ', err)
+      throw err
+    }
+  }
 }
 
 export default new API()
