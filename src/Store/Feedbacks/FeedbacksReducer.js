@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'saveFeedbacks':
       return {
         ...state,
-        arr: state.feedbacks.concat(action.feedbacks),
+        arr: state.arr.concat(action.feedbacks),
       }
     default:
       return state

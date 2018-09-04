@@ -9,7 +9,9 @@ import './FeedbackList.scss'
 const FeedbackList = ({ feedbacks, loadFeedback }) => {
   return (
     <Fragment>
-      {feedbacks.map((feedback, id) => <FeedbackCard feedback={feedback} />)},
+      {feedbacks.map((feedback, id) => (
+        <FeedbackCard feedback={feedback} key={id} />
+      ))},
       <Waypoint onEnter={loadFeedback} />
     </Fragment>
   )

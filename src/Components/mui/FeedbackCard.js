@@ -18,40 +18,20 @@ const styles = {
   },
 }
 
-function FeedbackCard(props) {
-  const { classes } = props
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-  )
-}
+const FeedbackCard = ({ classes, feedback }) => (
+  <Card className={classes.card}>
+    <CardContent>
+      <Typography gutterBottom variant="headline" component="h2">
+        {feedback.name}
+      </Typography>
+      <Typography component="p">{feedback.feedback}</Typography>
+    </CardContent>
+  </Card>
+)
 
 FeedbackCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  feedback: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(FeedbackCard)
