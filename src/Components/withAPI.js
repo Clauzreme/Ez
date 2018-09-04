@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import firebase from 'firebase'
 
 import { saveFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
@@ -44,7 +43,7 @@ const withAPI = PropOptions => WrappedComponent => {
     }
 
     loadFeedback() {
-      const { saveFeedbacks, feedbacks, lastDoc } = this.props
+      const { saveFeedbacks, lastDoc } = this.props
 
       console.log(lastDoc)
 

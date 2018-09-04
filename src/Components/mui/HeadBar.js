@@ -5,8 +5,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 
 import { GitHub } from '../../Assets'
@@ -39,7 +37,11 @@ const HeadBar = ({ classes, headerName }) => {
               Feedback
             </Button>
           </Link>
-          <a href="https://github.com/Clauzreme/Ez" target="_blank">
+          <a
+            href="https://github.com/Clauzreme/Ez"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button color="inherit" className={classes.round}>
               <img src={GitHub} alt="GitHub" />
             </Button>

@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import { compose, bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import { withRouter } from 'react-router-dom'
 
 import Drawer from './mui/Drawer'
