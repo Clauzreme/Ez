@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
 import FeedbackForm from '../../Components/mui/FeedbackForm'
+import Progress from '../../Components/mui/Progress'
 import Dialog from '../../Components/mui/Dialog'
 import FeedbackList from '../../Components/FeedbackList/FeedbackList'
 
@@ -78,7 +79,11 @@ class Feedback extends Component {
           feedback={feedback}
           hidden={hidden}
         />
-        <FeedbackList feedbacks={feedbacks} fetchFeedbacks={fetchFeedbacks} />
+        {feedbacks.length ? (
+          <FeedbackList feedbacks={feedbacks} fetchFeedbacks={fetchFeedbacks} />
+        ) : (
+          <Progress />
+        )}
       </Fragment>
     )
   }
