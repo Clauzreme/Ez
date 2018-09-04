@@ -52,7 +52,6 @@ class API {
         throw { reason: 'empty' }
       }
     } catch (err) {
-      console.log('Error getting documents: ', err)
       throw err
     }
   }
@@ -61,18 +60,16 @@ class API {
     try {
       await db
         .collection('feedback')
-        .doc(feedback.time)
+        .doc(JSON.stringify(feedback.time))
         .set(feedback)
 
       await db
-        .collection('feedback')
+        .collection('time')
         .doc('lastUpdated')
         .set(feedback)
 
-      console.log('Document successfully written!')
       return {}
     } catch (err) {
-      console.error('Error writing document: ', err)
       throw err
     }
   }

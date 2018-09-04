@@ -15,6 +15,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
       }
+    case 'prependFeedback':
+      return {
+        ...state,
+        arr: [action.feedback].concat(state.arr),
+      }
     default:
       return state
   }

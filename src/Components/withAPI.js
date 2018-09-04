@@ -5,7 +5,10 @@ import PropTypes from 'prop-types'
 
 import { db } from '../api/api'
 
-import { fetchFeedbacks } from '../Store/Feedbacks/FeedbacksActions'
+import {
+  fetchFeedbacks,
+  prependFeedback,
+} from '../Store/Feedbacks/FeedbacksActions'
 
 import {
   submitFeedback,
@@ -15,11 +18,18 @@ import {
 const withAPI = PropOptions => WrappedComponent => {
   class withAPI extends Component {
     onUpdateListener() {
+      const { prependFeedback } = this.props
       this.unlisten = db
-        .collection('feedback')
+        .collection('time')
         .doc('lastUpdated')
         .onSnapshot(doc => {
-          console.log(doc)
+          const firstFeedback = this.props.feedbacks[0]
+          if (doc.exists && firstFeedback) {
+            const data = doc.data()
+            if (data.time > firstFeedback.time) {
+              prependFeedback(data)
+            }
+          }
         })
     }
 
@@ -42,7 +52,7 @@ const withAPI = PropOptions => WrappedComponent => {
 
     handleSubmitClick() {
       const { submitFeedback, disableSubmit, form } = this.props
-      const now = JSON.stringify(Date.now())
+      const now = Date.now()
       form.time = now
 
       disableSubmit(disableSubmit)
@@ -73,6 +83,7 @@ const withAPI = PropOptions => WrappedComponent => {
       fetchFeedbacks: bindActionCreators(fetchFeedbacks, dispatch),
       submitFeedback: bindActionCreators(submitFeedback, dispatch),
       disableSubmit: bindActionCreators(disableSubmit, dispatch),
+      prependFeedback: bindActionCreators(prependFeedback, dispatch),
     }
   }
 

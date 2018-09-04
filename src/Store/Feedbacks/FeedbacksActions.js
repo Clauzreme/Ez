@@ -18,3 +18,9 @@ export const fetchFeedbacksFailure = () => {
     type: 'Feedbacks//fetchFeedbacksFailure',
   }
 }
+export const prependFeedback = feedback => {
+  return {
+    type: 'prependFeedback',
+    feedback,
+  }
+}
