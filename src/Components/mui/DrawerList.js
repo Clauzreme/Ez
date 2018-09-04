@@ -12,15 +12,15 @@ import { Link } from 'react-router-dom'
 
 const listItems = {
   'Built-in Types': {
-    String: '/types/string',
-    Digit: '/types/digit',
-    Float: '/types/float',
-    Boolean: '/types/boolean',
-    Undefined: '/types/undefined',
-    Null: '/types/null',
-    Array: '/types/array',
-    Object: '/types/object',
-    Set: '/types/set',
+    String: '/string',
+    Digit: '/digit',
+    Float: '/float',
+    Boolean: '/boolean',
+    Undefined: '/undefined',
+    Null: '/null',
+    Array: '/array',
+    Object: '/object',
+    Set: '/set',
   },
   Arithmetics: '/arithmetics',
 }

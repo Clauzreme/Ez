@@ -29,7 +29,7 @@
     "start:js": "react-scripts start",
     "build:js": "react-scripts build",
     "start": "npm-run-all -p build:css watch:css start:js",
-    "build": "npm-run-all -p build:css build:js",
+    "build": "rm -rf build && npm-run-all -p build:css build:js",
     "start-lan": "npm-run-all -p babel compile",
     "deploy": "yarn build && firebase deploy",
     "babel": "rm -rf compiled && cp -R compiling compiled && babel compiled compiled",

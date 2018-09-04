@@ -43,7 +43,7 @@ class FeedbackForm extends React.Component {
     return (
       <Paper className={classes.root} elevation={10}>
         <Typography variant="headline" component="h3">
-          Send a feedback
+          Send a feedback or a suggestion
         </Typography>
         <TextField
           label="Name (optional)"
