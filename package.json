@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.0.2",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
     "firebase": "^5.4.2",
     "moment": "^2.22.2",
     "react": "^16.4.2",
@@ -30,9 +30,9 @@
     "build:js": "react-scripts build",
     "start": "npm-run-all -p build:css watch:css start:js",
     "build": "rm -rf build && npm-run-all -p build:css build:js",
-    "start-lan": "npm-run-all -p babel compile",
     "deploy": "yarn build && firebase deploy",
-    "babel": "rm -rf compiled && cp -R compiling compiled && babel compiled compiled",
+    "try": "npm-run-all -p babel compile",
+    "babel": "rm -rf compiled && mkdir compiled && babel compiling -d compiled && cp ez/helloWorld.ez compiled",
     "compile": "node compiled/compiler.js helloWorld.ez",
     "items": "node items/index.js"
   }
