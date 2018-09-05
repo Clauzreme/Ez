@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-import { apiKey, authDomain, projectId } from '../configs/configs'
+import { apiKey, authDomain, projectId } from '../configs/public_configs'
 
 require('firebase/firestore')
 
