@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
 
 import Main from '../Pages/Main/Main'
 import Mathematics from '../Pages/Mathematics/Mathematics'
@@ -34,6 +34,8 @@ const Router = () => (
       <Route exact path="/set" component={Set} />
       <Route exact path="/builtInTypes" component={BuiltInTypes} />
       <Route exact path="/contributing" component={Contributing} />
+
+      <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>
 )

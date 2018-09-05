@@ -25,7 +25,8 @@ const listItems = {
     },
     '/builtInTypes',
   ],
-  Mathematics: '/arithmetics',
+  Mathematics: '/mathematics',
+  'Displaying data': '/displaying-data',
 }
 
 const styles = theme => ({
@@ -47,7 +48,7 @@ class DrawerList extends React.Component {
             const val = listItems[key]
             if (typeof val === 'string') {
               return (
-                <Link to={key} key={key}>
+                <Link to={val} key={key}>
                   <ListItem button>
                     <ListItemText primary={key} />
                   </ListItem>
