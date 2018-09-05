@@ -8,7 +8,9 @@ class Lexer {
 
   recieveData(data) {
     this.data = data
-    console.log(data)
+    for (let char of data) {
+      console.log('char: ', char)
+    }
   }
 }
 

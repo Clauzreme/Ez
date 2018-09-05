@@ -14,13 +14,11 @@ fs.readFile(filePath, (err, chunk) => {
   if (!err) {
     data = chunk.toString('utf8')
     console.log('data => ', data)
+
+    lexer.recieveData(data)
+
+    console.log('Tokens: ', lexer.tokens)
   } else {
-    console.log(err)
+    console.log('err => ', err)
   }
 })
-
-lexer.recieveData(data)
-
-console.log('TOkens: ')
-
-console.log(lexer.tokens)
