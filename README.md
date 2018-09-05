@@ -1,100 +1,25 @@
 # Ez
 
+(Ez is still in process, ...zzz)
+
 Eziest programming language in the world
 
 Ez is [object-oriented programming language](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
-Why Ez is worth looking at?
+## Installation
 
-- Really Ez for beginners.
-- Really Ez to debug compared to some other languages, using strict ruling.
+1.  Make sure you have installed the latest stable versions of [Node.js](nodejs.org) and [Yarn](https://yarnpkg.com/en/docs/install)
+2.  Open a console and run `yarn` in the root project folder
+3.  To start the web project locally, run `yarn start` from the root project folder, which will open [localhost:3000](http://localhost:3000)
 
-#### Supported types of elements
+## Documentation
 
-- `String`: 'Hello world!'
-- `Digit`: 0, 1, 2, 3, -5
-- `Float`: 1.25, -3.03, 7.18
-- `Boolean`: true/false
-- `Undefined`: undefined value
-- `Null`: null value
-- `Array`: [], ['23213', true, 'hehe'], [undefined]
-- `Object`: {'hi': 'sup', '2': '5'}
-- `Set`: {'abc', 1, ['string here'], 1.25}
+Check out my [documentation website](http://ezlang.org/).
 
-Behind the hood they are all instances of classes, so you can run methods on them, such as
+## Contributing
 
-```
-[].isEmpty()
+I would love to hear [any feedback](https://ezlang.org/feedback) or [contribution](/CONTRIBUTING.md) you make. :)
 
-=>
+## License
 
-true
-```
-
-or
-
-```
-25.toString()
-
-=>
-
-'25'
-```
-
-You can append your own functions if you wish to, and they would be accessible to all other same type of elements.
-
-#### How's that called in English?
-
-- `==`: Equals
-- `!=`: Not Equals
-- `>`: Greater than
-- `>=`: Greater than or equals to
-- `<`: Smaller than
-- `<=`: Smaller than or equals to
-
-For `>`, `>=`, `<`, `<=`
-
-you can compare interchangeably between digits and floats
-
-You can also compare stings with strings lexicographically
-
-For `==` you can compare literally anything, it uses strict ruling.
-Same rule follows for `!=`.
-
-```
-'hello' == 'hello'
-
-=>
-
-true
-```
-
-but
-
-```
-'5' == 5
-
-=>
-
-false
-```
-
-Objects and arrays are compared deeply, meaning
-
-```
-[ 'a', ['b', ['c']]] == [ 'a', ['b', ['c']]]
-
-=>
-
-true
-```
-
-and
-
-```
-[ 'a', ['b', ['c']]] == ['a', ['b', ['D']]]
-
-=>
-
-false
-```
+This project is licensed under the terms of the [MIT license](/LICENSE).

@@ -56,7 +56,7 @@ class Feedback extends Component {
       headerName,
       feedbacks,
       fetchFeedbacks,
-      form: { name, email, feedback, hidden },
+      form: { name, feedback, hidden },
     } = this.props
 
     const { dialogOpen } = this.state
@@ -75,7 +75,6 @@ class Feedback extends Component {
           handleCheckboxChange={() => this.handleCheckboxChange()}
           handleSubmitClick={() => this.handleSubmitClick()}
           name={name}
-          email={email}
           feedback={feedback}
           hidden={hidden}
         />

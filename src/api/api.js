@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-import { apiKey, authDomain, projectId } from '../configs/configs'
+import { apiKey, authDomain, projectId } from '../configs/public_configs'
 
 require('firebase/firestore')
 
@@ -41,7 +41,6 @@ class API {
       let newLastDoc
       querySnapshot.forEach(doc => {
         const data = doc.data()
-        delete data.email
         delete data.hidden
         newLastDoc = doc
         newFeedbacks.push(data)

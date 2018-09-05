@@ -15,6 +15,7 @@ import Array from '../Pages/Array/Array'
 import Object from '../Pages/Object/Object'
 import Set from '../Pages/Set/Set'
 import BuiltInTypes from '../Pages/BuiltInTypes/BuiltInTypes'
+import Contributing from '../Pages/Contributing/Contributing'
 
 const Router = () => (
   <BrowserRouter>
@@ -32,6 +33,7 @@ const Router = () => (
       <Route exact path="/object" component={Object} />
       <Route exact path="/set" component={Set} />
       <Route exact path="/builtInTypes" component={BuiltInTypes} />
+      <Route exact path="/contributing" component={Contributing} />
     </Switch>
   </BrowserRouter>
 )
