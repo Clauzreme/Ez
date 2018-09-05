@@ -32,7 +32,7 @@
     "build": "rm -rf build && npm-run-all -p build:css build:js",
     "deploy": "yarn build && firebase deploy",
     "try": "npm-run-all -p babel compile",
-    "babel": "rm -rf compiled && mkdir compiled && babel compiling -d compiled && cp ez/helloWorld.ez compiled",
+    "babel": "rm -rfv compiled/* && babel compiling -d compiled && cp ez/helloWorld.ez compiled",
     "compile": "node compiled/compiler.js helloWorld.ez",
     "items": "node items/index.js"
   }
