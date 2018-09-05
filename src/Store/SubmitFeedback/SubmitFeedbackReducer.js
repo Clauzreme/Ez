@@ -1,7 +1,6 @@
 const INITIAL_STATE = {
   form: {
     name: '',
-    email: '',
     feedback: '',
     hidden: false,
   },
@@ -15,7 +14,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         form: {
           name: '',
-          email: '',
           feedback: '',
           hidden: false,
         },
@@ -36,7 +34,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         form: {
           name: action.form.name,
-          email: action.form.email,
           feedback: action.form.feedback,
           hidden: action.form.hidden,
         },

@@ -41,7 +41,6 @@ class API {
       let newLastDoc
       querySnapshot.forEach(doc => {
         const data = doc.data()
-        delete data.email
         delete data.hidden
         newLastDoc = doc
         newFeedbacks.push(data)

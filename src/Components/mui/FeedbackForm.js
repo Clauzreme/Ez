@@ -35,7 +35,6 @@ class FeedbackForm extends React.Component {
       handleCheckboxChange,
       handleSubmitClick,
       name,
-      email,
       feedback,
       hidden,
     } = this.props
@@ -53,15 +52,6 @@ class FeedbackForm extends React.Component {
           className={classes.textField}
           margin="normal"
           onChange={event => handleInputChange(event, 'name')}
-        />
-        <TextField
-          label="Email (optional)"
-          value={email}
-          placeholder="private, only I can see"
-          fullWidth
-          className={classes.textField}
-          margin="normal"
-          onChange={event => handleInputChange(event, 'email')}
         />
         <TextField
           label="Feedback"
@@ -104,7 +94,6 @@ FeedbackForm.propTypes = {
   handleCheckboxChange: PropTypes.func.isRequired,
   handleSubmitClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
   feedback: PropTypes.string.isRequired,
   hidden: PropTypes.bool.isRequired,
 }
