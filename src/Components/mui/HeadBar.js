@@ -32,6 +32,11 @@ const HeadBar = ({ classes, headerName }) => {
           <Typography variant="title" color="inherit" className={classes.flex}>
             {headerName}
           </Typography>
+          <a href="mailto:ezlang.official@gmail.com">
+            <Button className={classes.marginRight} color="inherit">
+              Email me :)
+            </Button>
+          </a>
           <Link to={'/contributing'}>
             <Button className={classes.marginRight} color="inherit">
               Contributing
