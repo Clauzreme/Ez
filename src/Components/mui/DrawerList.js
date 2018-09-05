@@ -11,6 +11,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import { Link } from 'react-router-dom'
 
 const listItems = {
+  'Hello World': '/helloWorld',
   'Built-in Types': [
     {
       String: '/string',
@@ -23,10 +24,8 @@ const listItems = {
       Object: '/object',
       Set: '/set',
     },
-    '/builtInTypes',
   ],
   Mathematics: '/mathematics',
-  'Displaying data': '/displaying-data',
 }
 
 const styles = theme => ({
@@ -57,16 +56,13 @@ class DrawerList extends React.Component {
             }
 
             const nested = val[0]
-            const mainLink = val[1]
 
             return (
               <Fragment key={key}>
-                <Link to={mainLink}>
-                  <ListItem button onClick={() => handleClick(idx)}>
-                    <ListItemText primary={key} />
-                    {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
-                  </ListItem>
-                </Link>
+                <ListItem button onClick={() => handleClick(idx)}>
+                  <ListItemText primary={key} />
+                  {drawerList[idx] ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
                 <Collapse in={drawerList[idx]} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {Object.keys(nested).map(nestedKey => (

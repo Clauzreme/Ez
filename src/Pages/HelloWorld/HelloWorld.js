@@ -4,17 +4,21 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Header from '../../Components/Header/Header'
+import PaperContainer from '../../Components/mui/PaperContainer'
 
 import withContainer from '../../Components/withContainer'
 
-import './BuiltInTypes.css'
+import './HelloWorld.css'
 
-class BuiltInTypes extends Component {
+class HelloWorld extends Component {
   render() {
     const { headerName } = this.props
     return (
       <Fragment>
         <Header headerName={headerName} />
+        <PaperContainer>
+          <h2>'Hello World' in Ez:</h2>
+        </PaperContainer>
       </Fragment>
     )
   }
@@ -29,15 +33,15 @@ const mapDispatchToProps = dispatch => {
 }
 
 const enhance = compose(
-  withContainer({ name: 'BuiltInTypes' }),
+  withContainer({ name: 'HelloWorld' }),
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
 )
 
-export default enhance(BuiltInTypes)
+export default enhance(HelloWorld)
 
-BuiltInTypes.propTypes = {
+HelloWorld.propTypes = {
   headerName: PropTypes.string.isRequired,
 }
