@@ -17,7 +17,55 @@ class Mathematics extends Component {
       <Fragment>
         <Header headerName={headerName} />
         <PaperContainer>
-          <h2>Expressions and operators in Mathematics</h2>
+          <h2>Ez has several arithmetic operators: </h2>
+          <ul>
+            <li>
+              Assignment <span>(=)</span>
+            </li>
+            <li>
+              Addition <span>(+)</span>
+            </li>
+            <li>
+              Subtraction <span>(-)</span>
+            </li>
+            <li>
+              Multiplication <span>(*)</span>
+            </li>
+            <li>
+              Division <span>(/)</span>
+            </li>
+            <li>
+              Remainder <span>(%)</span>
+            </li>
+            <li>
+              FloorDivision <span>(//)</span>
+            </li>
+            <li>
+              Exponentiation <span>(**)</span>
+            </li>
+          </ul>
+
+          <PaperContainer>
+            <h3>Addition </h3>
+            <p>Examples:</p>
+            <ul>
+              <li>
+                <span className="code">1 + 2 => 3</span>
+              </li>
+              <li>
+                <span className="code">3 + 4 => 7</span>
+              </li>
+            </ul>
+            <p>With Assignment operator :</p>
+            <ul>
+              <li>
+                <span className="code">Shorthand: x += y</span>
+              </li>
+              <li>
+                <span className="code">Full: x = x + y</span>
+              </li>
+            </ul>
+          </PaperContainer>
         </PaperContainer>
       </Fragment>
     )

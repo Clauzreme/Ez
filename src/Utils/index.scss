@@ -9,6 +9,10 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 .rightSide {
   margin-left: 200px;
 }
@@ -25,4 +29,9 @@ a {
   left: 90px;
   top: 15px;
   color: red;
+}
+
+.code {
+  // padding: 5px;
+  background: #c2dfff;
 }
