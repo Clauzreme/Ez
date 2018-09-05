@@ -32,6 +32,11 @@ const HeadBar = ({ classes, headerName }) => {
           <Typography variant="title" color="inherit" className={classes.flex}>
             {headerName}
           </Typography>
+          <Link to={'/contributing'}>
+            <Button className={classes.marginRight} color="inherit">
+              Contributing
+            </Button>
+          </Link>
           <Link to={'/feedback'}>
             <Button className={classes.marginRight} color="inherit">
               Feedback
