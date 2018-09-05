@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import Header from '../../Components/Header/Header'
+import PaperContainer from '../../Components/mui/PaperContainer'
 
 import withContainer from '../../Components/withContainer'
 
@@ -15,6 +17,20 @@ class Main extends Component {
     return (
       <Fragment>
         <Header headerName={headerName} />
+        <PaperContainer>
+          <h1>Ez</h1>
+          <p>
+            Ez is object-oriented programming language that is designed to be to
+            be the eziest programming language in the world!
+          </p>
+          <p>
+            If you are feeling generous, please feel free to give me{' '}
+            <Link to={'/feedback'} className="inlineLink">
+              feedback
+            </Link>{' '}
+            :)
+          </p>
+        </PaperContainer>
       </Fragment>
     )
   }

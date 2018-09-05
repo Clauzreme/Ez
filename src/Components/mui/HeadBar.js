@@ -27,7 +27,7 @@ const styles = {
 const HeadBar = ({ classes, headerName }) => {
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.flex}>
             {headerName}

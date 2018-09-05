@@ -27,8 +27,8 @@ class HelloWorld extends Component {
           <p>
             The difference between these two is that{' '}
             <span className="code">log()</span> works only in development
-            (non-compiled) while <span className="code">print()</span> works
-            everywhere.
+            (non-compiled version) while <span className="code">print()</span>{' '}
+            works everywhere.
           </p>
         </PaperContainer>
       </Fragment>
