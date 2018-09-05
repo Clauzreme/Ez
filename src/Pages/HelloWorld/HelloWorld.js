@@ -17,7 +17,19 @@ class HelloWorld extends Component {
       <Fragment>
         <Header headerName={headerName} />
         <PaperContainer>
-          <h2>'Hello World' in Ez:</h2>
+          <h2>Printing out 'Hello World' in Ez is pretty easy:</h2>
+          <p className="code">print('Hello World')</p>
+          <p>
+            There is also another variant of{' '}
+            <span className="code">print()</span> which is{' '}
+            <span className="code">log()</span>
+          </p>
+          <p>
+            The difference between these two is that{' '}
+            <span className="code">log()</span> works only in development
+            (non-compiled) while <span className="code">print()</span> works
+            everywhere.
+          </p>
         </PaperContainer>
       </Fragment>
     )
