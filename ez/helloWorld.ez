@@ -1,2 +1,3 @@
-start:
-  echo 'hello world'
+omega = 1 + 2
+print(omega)
+log(omega)

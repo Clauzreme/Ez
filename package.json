@@ -31,9 +31,7 @@
     "start": "npm-run-all -p build:css watch:css start:js",
     "build": "rm -rf build && npm-run-all -p build:css build:js",
     "deploy": "yarn build && firebase deploy",
-    "try": "npm-run-all -p babel compile",
-    "babel": "rm -rfv compiled/* && babel compiling -d compiled && cp ez/helloWorld.ez compiled",
-    "compile": "node compiled/compiler.js helloWorld.ez",
+    "compile": "node workers/compiler.js helloWorld.ez",
     "items": "node items/index.js"
   }
 }

@@ -1,12 +1,12 @@
-import fs from 'fs'
+const fs = require('fs')
 
-import lexer from './lexer'
+const { lexer } = require('./lexer')
 
 const args = process.argv.slice(2)
 
 console.log(args)
 
-const filePath = __dirname + '/' + args[0]
+const filePath = __dirname + '/../ez/' + args[0]
 
 let data
 

@@ -16,4 +16,4 @@ class Lexer {
 
 const lexer = new Lexer()
 
-export default lexer
+module.exports = { lexer }
