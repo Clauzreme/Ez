@@ -1,11 +1,9 @@
 class Lexer {
-  constructor(data) {
+  constructor() {
     this.keywords = ['while', 'for', 'if', 'else']
     this.tokens = []
     this.separators = []
-    this.operators = []
-    this.literals = []
-    this.comment = []
+    this.operators = ['+', '-', '*', '/', '%']
     this.stingCapsulators = ["'", '"', '`']
   }
 
