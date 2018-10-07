@@ -1,24 +1,20 @@
+const args = process.argv.slice(2)
+const filePath = __dirname + '/../ez/' + args[0]
+
 const fs = require('fs')
+const readline = require('readline')
+const instream = fs.createReadStream(filePath)
+const outstream = new (require('stream'))()
+const rl = readline.createInterface(instream, outstream)
 
 const { lexer } = require('./lexer')
 
-const args = process.argv.slice(2)
+let data = []
 
-console.log(args)
+rl.on('line', line => {
+  data.push(line)
+})
 
-const filePath = __dirname + '/../ez/' + args[0]
-
-let data
-
-fs.readFile(filePath, (err, chunk) => {
-  if (!err) {
-    data = chunk.toString('utf8')
-    console.log('data => ', data)
-
-    lexer.recieveData(data)
-
-    console.log('Tokens: ', lexer.tokens)
-  } else {
-    console.log('err => ', err)
-  }
+rl.on('close', () => {
+  lexer.recieveData(data)
 })

@@ -2,15 +2,21 @@ class Lexer {
   constructor(data) {
     this.keywords = ['echo']
     this.tokens = []
+    this.separators = []
+    this.operators = []
+    this.literals = []
+    this.comment = []
   }
 
-  tokenizer() {}
-
-  recieveData(data) {
-    this.data = data
-    for (let char of data) {
+  tokenizer() {
+    for (let row of this.preLexeredData) {
       console.log('char: ', char)
     }
+  }
+
+  recieveData(data) {
+    this.preLexeredData = preLexeredData
+    this.tokenizer()
   }
 }
 
