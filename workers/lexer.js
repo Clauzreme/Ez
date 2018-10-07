@@ -6,16 +6,40 @@ class Lexer {
     this.operators = []
     this.literals = []
     this.comment = []
+    this.stingCapsulators = ["'", '"', '`']
   }
 
   tokenizer() {
-    for (let row of this.preLexeredData) {
-      console.log('char: ', char)
+    for (let row of this.data) {
+      console.log('row => ', row)
+
+      let value = []
+      let type = ''
+
+      for (let char of row) {
+        console.log('char => ', char)
+        if (char === `'` && type === '') {
+          type = 'string'
+          value = []
+        } else if (char === `'` && type === 'string') {
+          this.tokens.push({ type, value: value.join('') })
+          value = []
+          type = ''
+        } else if (char === ` ` && type !== 'string') {
+          if (type !== '') {
+            this.tokens.push({ type, value: value.join('') })
+          }
+        } else {
+          value.push(char)
+        }
+      }
     }
+
+    console.log(this.tokens)
   }
 
   recieveData(data) {
-    this.preLexeredData = preLexeredData
+    this.data = data
     this.tokenizer()
   }
 }
